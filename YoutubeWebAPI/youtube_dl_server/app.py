@@ -168,7 +168,7 @@ def get_result():
 @set_access_control
 def info():
     url = request.args['url']
-    result = flatten_result(get_result())
+    result = flatten_result(get_result(url))
     test = {
         'url': url,
         "videos": [{'url':result[0]['url']}],
