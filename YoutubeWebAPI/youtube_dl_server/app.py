@@ -165,6 +165,7 @@ def get_result():
 
 
 @route_api('info')
+@set_access_control
 def info():
     url = request.args['url']
     result = flatten_result(get_result())
