@@ -168,7 +168,7 @@ def get_result():
 @set_access_control
 def info():
     url = request.args['url']
-	return jsonify(url)
+    return jsonify(url)
     result = flatten_result(get_result())
     test = {
         'url': url,
