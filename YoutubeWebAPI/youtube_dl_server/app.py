@@ -189,9 +189,8 @@ def utubePlay():
     _title = result[0]['title']
     videoUrl = ''
     audioUrl = ''
-    bro = ''
+
     for _f in _formats:
-	bro += _f['format_id']
         if (_f['format_id'] == f_id):
             videoUrl = _f['url']
         if(_f['format_id'] == '258'):
@@ -200,7 +199,7 @@ def utubePlay():
     test = {
         'title': {'title':_title},
         'video': {'url':videoUrl},
-        'audio': {'url':audioUrl+bro}
+        'audio': {'url':audioUrl}
     }
 
     return jsonify(test)
