@@ -193,7 +193,7 @@ def utubePlay():
     for _f in _formats:
         if (_f['format_id'] == f_id):
             videoUrl = _f['url']
-        if(_f['format_id'] == '258'):
+        if(_f['format_id'] == '18'):
             audioUrl = _f['url']
 
     test = {
