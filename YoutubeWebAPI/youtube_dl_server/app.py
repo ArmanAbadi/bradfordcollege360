@@ -31,7 +31,7 @@ def get_videos(url, extra_params):
         'geo_bypass ': True,
         'force_ipv4': True,
         'player_client': 'android',
-        'user_agent': request.user_agent.string, 
+        'user_agent': '', 
         'logger': current_app.logger.getChild('yt_dlp'),
     }
 
