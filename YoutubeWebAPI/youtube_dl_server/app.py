@@ -21,7 +21,7 @@ class SimpleYDL(yt_dlp.YoutubeDL):
         super(SimpleYDL, self).__init__(*args, **kargs)
         self.add_default_info_extractors()
 
-@route_api('utubePlay')
+@route_api('get_videos')
 @set_access_control
 def get_videos(url, extra_params):
     '''
