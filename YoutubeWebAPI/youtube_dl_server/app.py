@@ -101,7 +101,7 @@ def block_on_user_agent():
     if pathee == "/api/regexUpdater" :
         abort(404)
 
-    user_agent = request.user_agent.string
+    user_agent = ''
     forbidden_uas = current_app.config.get('FORBIDDEN_USER_AGENTS', [])
 
     
