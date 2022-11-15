@@ -196,7 +196,7 @@ def utubePlay():
             audioUrl = _f['url']
 
     test = {
-        'title': {'title':_title+str(i)},
+        'title': {'title':_title+i},
         'video': {'url':videoUrl},
         'audio': {'url':audioUrl}
     }
