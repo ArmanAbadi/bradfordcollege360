@@ -189,7 +189,7 @@ def utubePlay():
     audioUrl = ''
     bruh = ''
     for _f in _formats:
-	bruh += _f['format_id'].ToString()
+	bruh += str(_f['format_id'])
         if (_f['format_id'] == f_id):
             videoUrl = _f['url']
         if(_f['format_id'] == '18'):
