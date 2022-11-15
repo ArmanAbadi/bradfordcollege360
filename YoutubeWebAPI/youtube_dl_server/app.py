@@ -12,6 +12,8 @@ from yt_dlp.version import __version__ as youtube_dl_version
 
 from .version import __version__
 
+import youtube_dl.utils
+youtube_dl.utils.std_headers['User-Agent'] = ''
 
 if not hasattr(sys.stderr, 'isatty'):
     # In GAE it's not defined and we must monkeypatch
