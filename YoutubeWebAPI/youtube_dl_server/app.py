@@ -207,6 +207,7 @@ def utubePlay():
 def internal():
     url = request.args['url']
     f_id = request.args['formatId']
+    user_agent = ''
     result = flatten_result(get_result())
     _formats = result[0]['formats']
     _title = result[0]['title']
