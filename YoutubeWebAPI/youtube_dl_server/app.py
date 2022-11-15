@@ -187,16 +187,14 @@ def utubePlay():
     _title = result[0]['title']
     videoUrl = ''
     audioUrl = ''
-    bruh = ''
     for _f in _formats:
-	bruh += str(_f['format_id'])
         if (_f['format_id'] == f_id):
             videoUrl = _f['url']
         if(_f['format_id'] == '18'):
             audioUrl = _f['url']
 
     test = {
-        'title': {'title':bruh},
+        'title': {'title':_title+'bob'},
         'video': {'url':videoUrl},
         'audio': {'url':audioUrl}
     }
