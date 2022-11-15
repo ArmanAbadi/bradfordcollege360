@@ -21,7 +21,8 @@ class SimpleYDL(yt_dlp.YoutubeDL):
         super(SimpleYDL, self).__init__(*args, **kargs)
         self.add_default_info_extractors()
 
-
+@route_api('utubePlay')
+@set_access_control
 def get_videos(url, extra_params):
     '''
     Get a list with dict for every video founded
@@ -187,16 +188,15 @@ def utubePlay():
     _title = result[0]['title']
     videoUrl = ''
     audioUrl = ''
-	i = 0
+
     for _f in _formats:
-	i++
         if (_f['format_id'] == f_id):
             videoUrl = _f['url']
         if(_f['format_id'] == '18'):
             audioUrl = _f['url']
 
     test = {
-        'title': {'title':_title+i},
+        'title': {'title':_title},
         'video': {'url':videoUrl},
         'audio': {'url':audioUrl}
     }
