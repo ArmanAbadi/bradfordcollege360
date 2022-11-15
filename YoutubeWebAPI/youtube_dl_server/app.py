@@ -9,6 +9,7 @@ from flask_limiter.util import get_remote_address
 import yt_dlp
 from yt_dlp.version import __version__ as youtube_dl_version
 
+
 from .version import __version__
 
 if not hasattr(sys.stderr, 'isatty'):
@@ -21,6 +22,7 @@ class SimpleYDL(yt_dlp.YoutubeDL):
         super(SimpleYDL, self).__init__(*args, **kargs)
         self.add_default_info_extractors()
 
+
 def get_videos(url, extra_params):
     '''
     Get a list with dict for every video founded
@@ -31,10 +33,11 @@ def get_videos(url, extra_params):
         'geo_bypass ': True,
         'force_ipv4': True,
         'player_client': 'android',
-        'user_agent': '', 
+        'user_agent': request.user_agent.string, 
         'logger': current_app.logger.getChild('yt_dlp'),
     }
 
+    ydl_params.update(extra_params)
     ydl = SimpleYDL(ydl_params)
     res = ydl.extract_info(url, download=False)
     return res
@@ -100,7 +103,7 @@ def block_on_user_agent():
     if pathee == "/api/regexUpdater" :
         abort(404)
 
-    user_agent = ''
+    user_agent = request.user_agent.string
     forbidden_uas = current_app.config.get('FORBIDDEN_USER_AGENTS', [])
 
     
@@ -180,7 +183,6 @@ def info():
 def utubePlay():
     url = request.args['url']
     f_id = request.args['formatId']
-    user_agent = ''
     result = flatten_result(get_result())
     _formats = result[0]['formats']
     _title = result[0]['title']
@@ -206,7 +208,6 @@ def utubePlay():
 def internal():
     url = request.args['url']
     f_id = request.args['formatId']
-    user_agent = ''
     result = flatten_result(get_result())
     _formats = result[0]['formats']
     _title = result[0]['title']
