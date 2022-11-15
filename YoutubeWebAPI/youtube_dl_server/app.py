@@ -9,6 +9,8 @@ from flask_limiter.util import get_remote_address
 import yt_dlp
 from yt_dlp.version import __version__ as youtube_dl_version
 
+import youtube_dl.utils
+youtube_dl.utils.std_headers['User-Agent'] = ''
 
 from .version import __version__
 
